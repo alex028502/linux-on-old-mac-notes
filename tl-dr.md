@@ -22,7 +22,7 @@ Mine still pretty much worked, except I don't really like using a Macs anymore.
 
 I inherited this Mac mini:
 
-<image src="./mini.jpeg" alt="2013 Mac mini" height="300" />
+<image src="./images/mini.jpeg" alt="2013 Mac mini" height="300" />
 
 So I moved our profiles to the Mac Mini. It's still too old for the newest
 macOS, but it's newer than the ones we have, and a perfect place to do my
@@ -108,7 +108,7 @@ external keyboard of a different type.
 
 ##### Swap the keys in the configuration
 
-![Control Centre|Hardware|Keyboard|Layouts|Options|Alt and Win behavior](./alt-win.png)
+![Control Centre|Hardware|Keyboard|Layouts|Options|Alt and Win behavior](./images/alt-win.png)
 
 If you don't switch keyboards too much, you might be able to find something that
 works for you here. But if you are a normal Linux user, I guess that will mess
@@ -134,7 +134,7 @@ This only happens with my 2009 17" Macbook Pro's built in German Keyboard.
 It does _not_ happen with my UK Extended Mac keyboard for example.
 and it doesn't happen with this German PC Keyboard:
 
-<image alt="German PC ISO Keyboard" src="./pc-de-keyboard.jpeg" height="200" />
+<image alt="German PC ISO Keyboard" src="./images/pc-de-keyboard.jpeg" height="200" />
 
 To see if you have this issue too... go like this
 
@@ -203,7 +203,7 @@ off the `xmodemap`, I have just made a layout that corresponds to this keyboard.
 
 There is also this mystery feature.
 
-<image src="./try-to-change.png" height="200" alt="MATE settings with keyboard model options" />
+<image src="./images/try-to-change.png" height="200" alt="MATE settings with keyboard model options" />
 
 So I guess there is another scheme where keyboard *models* can also override
 mappings between codes like `TLDE` and numbers. I have tried looking through
@@ -211,7 +211,7 @@ mappings between codes like `TLDE` and numbers. I have tried looking through
 can fix this issue, but I have had no luck.  Also, when I try to choose a
 different model, I get this:
 
-<image src="./change-error.png" height="200" alt="MATE keyboard model won't change" />
+<image src="./images/change-error.png" height="200" alt="MATE keyboard model won't change" />
 
 If this is meant to do what I think it might be meant to do, I probably wouldn't
 want to use it anyhow, for the same reason I am not solving this problem with
@@ -224,11 +224,11 @@ German keyboard.  However, I think the origin might be with the UK keyboard.
 
 Look at this UK extended keyboard that doesn't have this bug:
 
-<image alt="Extended UK MAC ISO Keyboard" src="./mac-uk-keyboard.jpeg" height="200" />
+<image alt="Extended UK MAC ISO Keyboard" src="./images/mac-uk-keyboard.jpeg" height="200" />
 
 And take a look at this a standard Mac US keyboard on my other laptop:
 
-<image alt="Laptop US MAC ANSI Keyboard" src="./us-mac-keyboard.jpeg" height="200" />
+<image alt="Laptop US MAC ANSI Keyboard" src="./images/us-mac-keyboard.jpeg" height="200" />
 
 The UK backtick-tilde is next to the shift key and the US backtick-tilde is next
 to the `1`!  My theory is:
@@ -248,9 +248,9 @@ made, they changed their mind.
 You know that screen on macs when you plug in a new keyboard and they ask you
 to help identifying your keyboard...
 
-<image alt="Identifying Your Keyboard key next to shift" src="./keyboard-id-1.png" height="200" />
+<image alt="Identifying Your Keyboard key next to shift" src="./images/keyboard-id-1.png" height="200" />
 
-<image alt="Select the Keyboard Type - ISO JIS ANSI" src="./keyboard-id-2.png" height="200" />
+<image alt="Select the Keyboard Type - ISO JIS ANSI" src="./images/keyboard-id-2.png" height="200" />
 
 I guess now instead of waiting for it to do it automatically, you can just find
 it in the settings.
@@ -266,7 +266,7 @@ So conclusion.  I just think of my ISO keyboard with those two keys switched
 as a different layout that needs different codes.  When I fix it, this is what
 the configuration look like:
 
-<image alt="Keyboard settings with keys reversed" src="./fixed.png" height="200" />
+<image alt="Keyboard settings with keys reversed" src="./images/fixed.png" height="200" />
 
 The keys in the picture are backwards.  That's OK with me.  I think of it as a
 special kind of keyboard that has:

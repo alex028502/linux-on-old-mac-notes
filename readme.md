@@ -41,7 +41,7 @@ for solutions to similar issues.
 
 | 2009 17" Macbook Pro | 2013 11" Macbook Air |
 |----|----|
-| <image alt="2009 17&quot; Macbook Pro" src="macbook-pro-09.jpeg" height="300" /> | <image alt="2013 11&quot; Macbook Air" src="./macbook-air-13.jpeg" height="300" /> |
+| <image alt="2009 17&quot; Macbook Pro" src="images/macbook-pro-09.jpeg" height="300" /> | <image alt="2013 11&quot; Macbook Air" src="images/macbook-air-13.jpeg" height="300" /> |
 | like 8GB of RAM | like 4G of RAM |
 
 #### Keyboards
@@ -68,11 +68,11 @@ to a couple of these workarounds.
 
 In the 2009 Macbook Pro, I replaced the original hard disk with an SSD
 
-<image height="300" src="./ssd.jpeg" alt="new ssd" />
+<image height="300" src="images/ssd.jpeg" alt="new ssd" />
 
 and I put the old disk in one of these things.
 
-<image alt="SATA to USB connector" height="300" src="./hd-connector.jpeg" />
+<image alt="SATA to USB connector" height="300" src="images/hd-connector.jpeg" />
 I can actually boot from it. So if I need to check something in the old
 installation, like information on a driver or something, I can plug this in
 and hold down the option key during boot, and boot from this disk. This is also
@@ -124,7 +124,7 @@ ISO Keyboards, German Mac Keyboards... but if you are reading this, maybe you
 are only here because you have the same problem, and found this in a web
 search.
 
-<image src="./mixed-up.jpeg" alt="German Mac Keyboard with keys 94 and 49 circled" height="200" />
+<image src="images/mixed-up.jpeg" alt="German Mac Keyboard with keys 94 and 49 circled" height="200" />
 
 If you have the same problem as me, the two circled keys, the one in the top
 left corner, and the one next to the shift key, are reversed.  Keycodes 94 and
@@ -197,7 +197,7 @@ your full menu back the next restart.
 Once you add the above and restart, you should see this in your keyboard
 layout options:
 
-<image alt="Keyboard settings with keys reversed" src="./fixed.png" height="300" />
+<image alt="Keyboard settings with keys reversed" src="images/fixed.png" height="300" />
 
 ... a layout that looks backwards in the picture, but actually works correctly
 because your keyboard is also backwards.
@@ -235,7 +235,7 @@ know if that is youtube doing that, or an mistake from whoever put it up there.
 
 The surround sound tests confirmed what the sound check settings told me:
 
-![Sound check in settings](./sound-check.png)
+![Sound check in settings](./images/sound-check.png)
 
 ... that in stereo mode, only Front Right works, and in 5.1 mode, both rear
 channels work, and in 4.0 mode, all but front left work.
@@ -298,7 +298,7 @@ However, with these mac touchpads, is totally integrated. It's like tapping,
 except you need to tap a bit harder, until it clicks. So the tap feature is
 redundant:
 
-<image alt="Touchpad settings with Enable mouse clicks with touchpad option circled" src="./no-tap.png" height="300" />
+<image alt="Touchpad settings with Enable mouse clicks with touchpad option circled" src="images/no-tap.png" height="300" />
 
 So just make sure "Enable mouse clicks with touchpad" is unchecked.
 
@@ -324,7 +324,7 @@ However, sometimes when I plug in an external monitor, either because I am
 solving the problem I just mentioned, or for a normal reason, weird things
 happen like the dock starts floating in the middle of the screen.
 
-<image src="./levitating-dock.png" alt="MATE Cupertino desktop with misplaced Plank dock" height=300 />
+<image src="images/levitating-dock.png" alt="MATE Cupertino desktop with misplaced Plank dock" height=300 />
 
 These things sometimes work:
 
@@ -423,7 +423,7 @@ way to set it.
 If after running that command, if you prefer that way this works, you can add
 a startup script here:
 
-![Start Up Applications in Control Centre](./startup.png)
+![Start Up Applications in Control Centre](./images/startup.png)
 
 Make the name and description whatever you want, and make the exact same
 command you tried out.  To see if it worked, just log out and log back in.
@@ -440,7 +440,7 @@ and also see what other settings are available.
 
 Another potential deal breaker was this button:
 
-![F3 Key with Exposé](./expose-button.jpeg)
+![F3 Key with Exposé](./images/expose-button.jpeg)
 
 The feature in OS X used to be called Exposé but now I guess it has a new name.
 You press it, and it shows all your windows.  In normal Ubuntu (Gnome 3) when
@@ -472,7 +472,7 @@ mapped the Exposé key to "Initiate Window Picker For All Windows"
 
 However, that was a bit tricky too...
 
-![trying to set expose button to Window Picker - showing LaunchA](./launchA.png)
+![trying to set expose button to Window Picker - showing LaunchA](./images/launchA.png)
 
 I tried to set the keyboard shortcut for the Exposé key.  It puts the code
 `LaunchA` into the settings interface when I try to detect it. However, it
@@ -517,11 +517,11 @@ To make this change stick, I added a MATE startup application with the
 `xmodmap` command.  However, I learned the hard way that you can't use `~` in
 the command.  You have to put the full path to your home directory.
 
-![Successfully set F20](./f20-expose.png)
+![Successfully set F20](./images/f20-expose.png)
 
 Do not do this:
 
-![Do not use ~ in startup application](./expose-f20.png)
+![Do not use ~ in startup application](./images/expose-f20.png)
 
 Use the full path to `.Xmodmap`
 
