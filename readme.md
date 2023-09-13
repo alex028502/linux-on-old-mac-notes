@@ -321,7 +321,7 @@ fingers for middle click. I think this is a little more like Mac OS.
 
 You can turn it on in mouse settings like this:
 
-![Two Finger - Right button; Three Finger - Middle Button](./images/multi-finger.jpeg)
+![Two Finger - Right button; Three Finger - Middle Button](./images/multi-finger.png)
 
 Somehow that setting didn't work as expected the first time I tried it, or I
 thought by the menu structure that it would turn on multi-finger mode without
