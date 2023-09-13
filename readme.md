@@ -59,8 +59,10 @@ More on that [here](./tl-dr.md#keyboards)
 I installed Ubuntu MATE 22.04.3 LTS on both machines. The kernel version is
 at `6.2.0-26-generic`. (just in case some bugs are fixed later)
 
-I am using the Cupertino Desktop Style, with "Compiz".  Compiz is only related
-to a couple of these workarounds.
+I am using the Cupertino Desktop Style
+
+I used "Compiz", but I have since turned it off on one of my computers after
+finding a different [Exposé](#exposé) substitute.
 
 ## Just getting it working
 
@@ -339,6 +341,8 @@ You press it, and it shows all your windows.  In normal Ubuntu (Gnome 3) when
 you press `⌘` (or the windows button) you get the application launcher with
 something similar, and in KDE there is something similar too.
 
+##### Exposé #1 - Compiz
+
 To get this in MATE, I had to install "compiz" and then use a feature called
 _Scale_.
 
@@ -427,6 +431,70 @@ often do, I can't use this feature.  However, I never used this feature before
 anyway, so if I get hooked on it now that I have had to configure it for
 somebody else, I'll rethink my key combinations for when I am using a PC
 keyboard, or remap another key!
+
+##### Exposé #2 - Skippy XD
+
+I was having some strange issues when plugging in and unplugging my second
+screen, and wondered if the problem was Compiz. The only reason I had it on was
+for "Scale", and as I am only an occasional exposé user, I searched for a
+simpler solution.
+
+Also, while investigating the ["tilde" bug](#keys-49-and-94-are-mixed-up) I
+have learned a bit more about key mappings, and don't feel as comfortable using
+xmodmap if I don't have to - more on that some other time.
+
+I found that years ago, somebody created something called
+[skippy-xd](https://github.com/richardgv/skippy-xd).  I think it was "famous"
+in its day, but is not longer maintained, and if it was packaged with distros
+before, it isn't anymore.
+
+Somebody named `dreamcat4` has forked it, and is maintaining it
+[here](https://github.com/dreamcat4/skippy-xd).
+I don't know how I am supposed to make sure that it isn't spyware. So I just
+took a leap.
+
+It's a bit clunkier than Compiz's "scale", but it has other advantages like not
+having to remap keys.
+
+I think [this](https://github.com/dreamcat4/skippy-xd/wiki/Installation) is
+what I did to install it.  This is the version I used:
+
+```
+~/skippy-xd$ git rev-parse HEAD
+181b143e225a993b60b255d2a0548ca588c14f88
+```
+
+I might not have "installed" it.  looking at it, my `~/bin` directory has
+symlinks straight to the directory cloned repo:
+
+```
+$ ls -l skippy*
+skippy-xd -> ~/skippy-xd/skippy-xd
+skippy-xd-runner -> ~/skippy-xd/skippy-xd-runner
+```
+(the above output has been abbreviated)
+
+So you might be able to just compile it, and then make your own symlinks. I
+wish I had written this down immediately.
+
+There is a chance that I never saw the above installation instructions from the
+wike, and just compiled it, and improvised.
+
+So either way, once you have `skippy-xd` and `skippy-xd-runner` in your path,
+use Ubuntu MATE's _Startup Applications_ to start `skippy-xd-runner --daemon`
+at startup. Then use Ubuntu MATE's _Keyboard Shortcuts_ to point the Exposé
+key at `skippy-xd-runner --expose`
+
+[!Startup Application for Exposé](images/skippy-xd-startup.png)
+[!Keyboard Shortcut for Exposé](images/skippy-xd-shortcut.png)
+
+Unlike the Compiz shorcuts, LaunchA works just fine, so there is no need to
+remap the Exposé key to F20. If you still have it mapped, it will work, but it
+is better to remove the mapping first.
+
+I tried running `skippy-xd` in a few other ways - like not starting the daemon,
+and just running the application (just `skippy-xd` I think) and it seemed to
+work but got confused when I pressed the key more than once.
 
 ### Show Desktop Trackpad Gesture
 
