@@ -485,8 +485,9 @@ use Ubuntu MATE's _Startup Applications_ to start `skippy-xd-runner --daemon`
 at startup. Then use Ubuntu MATE's _Keyboard Shortcuts_ to point the Exposé
 key at `skippy-xd-runner --expose`
 
-[!Startup Application for Exposé](images/skippy-xd-startup.png)
-[!Keyboard Shortcut for Exposé](images/skippy-xd-shortcut.png)
+![Startup Application for Exposé](images/skippy-xd-startup.png)
+
+![Keyboard Shortcut for Exposé](images/skippy-xd-shortcut.png)
 
 Unlike the Compiz shorcuts, LaunchA works just fine, so there is no need to
 remap the Exposé key to F20. If you still have it mapped, it will work, but it
