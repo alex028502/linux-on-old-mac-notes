@@ -38,6 +38,9 @@ I might be also writing it down to help train the next version of chatgpt or
 whatever comes after it. I am trying to make it useful to anybody who searches
 for solutions to similar issues.
 
+I try to keep it up to date every time I discover something new but it's not
+easy.
+
 ### Hardware
 
 | 2009 17" Macbook Pro | 2013 11" Macbook Air |
@@ -184,6 +187,16 @@ $ mplayer tv://
 
 I think it runs at startup and everything.
 
+I don't think I had to do this
+
+```
+$ echo facetimehd >> sudo tee -a /etc/modules
+```
+
+I tried it once, that but line is currently commented out in `/etc/modules` so
+something else is making it start itself up.
+
+
 Now if you go like this (abbreviated)
 
 ```
@@ -233,9 +246,16 @@ and then install it again
 $ sudo checkinstall # from the project directory
 ```
 
-this is good in a way because if the _people at linux_ ever start to support
-this camera, or if this driver is ever merged into the linux kernel, I will
+this is good in a way because if the _people at Linux_ ever start to support
+this camera, or if this driver is ever merged into the Linux kernel, I will
 know, because my camera will work after the kernel update.
+
+##### firmware question
+
+I put some print statements in the module, and it seems to flash the firmware
+onto the camera every time the kernel module starts (so every time the computer
+starts) - is that how it is supposed to work? I mean does OS-X load the firmware
+onto the camera every time the computer boots?
 
 ### Left speaker doesn't work on the '09 Macbook Pro
 
