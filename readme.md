@@ -224,9 +224,7 @@ redundant:
 So just make sure "Enable mouse clicks with touchpad" is unchecked.
 
 In that configuration window, underneath the red circle, there are some two
-finger and three finger right and middle click emulation checkboxes. Leave
-those unchecked, because if you use them, you will want to also turn off the
-current right and middle click system. That is covered
+finger and three finger right and middle click emulation checkboxes, covered
 [here](#no-clicking-areas)
 
 ### screenshots
@@ -301,61 +299,14 @@ and close them.
 The alternative scheme is click with two fingers for right click, and three
 fingers for middle click. I think this is a little more like Mac OS.
 
-There are menus to turn on two finger and three finger click modes in the
-touchpad settings.  However, they don't seem to turn _off_ the clicking areas.
+You can turn it on in mouse settings like this:
 
-This does both:
+![Two Finger - Right button; Three Finger - Middle Button](./images/multi-finger.jpeg)
 
-```
-xinput set-prop bcm5974 "libinput Click Method Enabled" 0 1
-```
-
-The last two args are clicking areas off, and multi-finger on. They are allowed
-to both be low, but they can't both be high.
-
-To confirm that you have the same device you can go like this:
-
-```
-$ xinput list
-⎡ Virtual core pointer                          id=2    [master pointer  (3)]
-⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
-⎜   ↳ bcm5974                                   id=11   [slave  pointer  (2)]
-⎜   ↳ USB Optical Mouse                         id=14   [slave  pointer  (2)]
-⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
-    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
-    ↳ Power Button                              id=6    [slave  keyboard (3)]
-    ↳ Video Bus                                 id=7    [slave  keyboard (3)]
-    ↳ Power Button                              id=8    [slave  keyboard (3)]
-    ↳ Sleep Button                              id=9    [slave  keyboard (3)]
-    ↳ Apple Inc. Apple Internal Keyboard / Trackpad     id=10   [slave  keyboard (3)]
-    ↳ Apple Inc. Apple Keyboard                 id=12   [slave  keyboard (3)]
-    ↳ Apple Inc. Apple Keyboard                 id=13   [slave  keyboard (3)]
-```
-
-It works if you put `11` instead of `bcm5974` except I don't know if it is
-always `11`. When I wrote it down in my notes, it was `15` I think.
-
-The entry that I am looking for is `bcm5974`. It says `id=11`.  It's `11` on
-both my computers. I hope it never changes. In my notes it says `15`. I guess
-I'll find out soon enough. If it changes, I'm gonna have to make a startup
-script that finds the id in that list and then sets it, or find out a better
-way to set it.
-
-If after running that command, if you prefer that way this works, you can add
-a startup script here:
-
-![Start Up Applications in Control Centre](./images/startup.png)
-
-Make the name and description whatever you want, and make the exact same
-command you tried out.  To see if it worked, just log out and log back in.
-
-You can see the current settings like this:
-
-```
-xinput list-props bcm5974
-```
-
-and also see what other settings are available.
+Somehow that setting didn't work as expected the first time I tried it, or I
+thought by the menu structure that it would turn on multi-finger mode without
+turning off the clicking areas, so I found a much harder way to accomplish the
+same thing which is now documented [here](./xinput.md)
 
 ### Exposé
 
