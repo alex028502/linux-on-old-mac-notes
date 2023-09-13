@@ -10,6 +10,7 @@
   - [Disk Image](#disk-image)
   - [Keyboard Issue](#keys-49-and-94-are-mixed-up)
   - [Speaker Issue](#left-speaker-doesnt-work-on-the-09-macbook-pro)
+  - [Camera Issue](#camera-issue)
   - [Tapping vs Clicking](#tapping-vs-clicking)
   - [Screenshots](#screenshots)
   - [Monitor Glitches](#monitor-glitches)
@@ -124,6 +125,117 @@ mixed up.
 Well the good news is I think it is fixed in Kernel 6.4, and I think that
 I will be sent Kernel 6.5 in October 2023. But I wrote down my temporary
 workaround [here](./49-94.md)
+
+### Camera Issue
+
+After happily using my 11" 2013 Macbook Air for a couple weeks, I tried to use
+it for a family Zoom call, only to discover the camera doesn't work!
+
+This is the camera I have:
+
+```
+$ lspci | grep -i face
+02:00.0 Multimedia controller: Broadcom Inc. and subsidiaries 720p FaceTime HD Camera
+```
+
+a web search brought me [here](https://linux-hardware.org/?id=pci:14e4-1570-14e4-1570)
+where it says to use [this](https://github.com/patjak/bcwc_pcie), which I
+installed, and seems to work.
+
+I don't quite understand why this exists, because the linux-hardware.org page
+says that the kernel supported this camera until v5.11, and it seems like
+`bcww_pcie` also existed at the same time, but I haven't looked to closely.
+
+
+
+I wish I could say I just followed the
+[instructions](https://github.com/patjak/facetimehd/wiki/Installation#get-started-on-debian),
+and everything worked, but I actually failed to follow the instructions
+correctly a couple of times.
+
+Here is more or less what worked:
+
+clone the firmware repo, build, and install
+
+```
+$ sudo apt install xz-utils curl cpio make
+$ git clone https://github.com/patjak/facetimehd-firmware.git
+$ cd facetimehd-firmware
+$ make
+$ sudo make install
+```
+
+clone the main repo, build, and install
+
+the instructions tell you to clone the old repo address which works too but
+on my second iteration, I switched to the new address, so that everything had
+the same name.
+
+```
+$ git clone https://github.com/patjak/facetimehd
+$ cd facetimehd
+$ sudo apt-get install linux-headers-generic git kmod libssl-dev checkinstall
+$ make
+$ sudo checkinstall # this is pretty cool
+$ sudo depmod
+$ sudo modprobe facetimehd
+$ mplayer tv://
+```
+
+I think it runs at startup and everything.
+
+Now if you go like this (abbreviated)
+
+```
+$ sudo find /sys -name driver -ls | grep facetime
+ /sys/devices/pci0000:00/0000:00:1c.1/0000:02:00.0/driver -> ../../../../bus/pci/drivers/facetimehd
+```
+
+you can see the driver is activated
+
+There is a gotcha it seems. When `checkinstall` created a `.deb` package and
+installed it (or maybe it was the other way around) it created these files:
+
+```
+$ dpkg -l facetimehd
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version      Architecture Description
++++-==============-============-============-=================================
+ii  facetimehd     20230906-1   amd64        facetimedriver
+alex@traveller:~/bin$ dpkg -L facetimehd
+/.
+/lib
+/lib/modules
+/lib/modules/6.2.0-31-generic
+/lib/modules/6.2.0-31-generic/extra
+/lib/modules/6.2.0-31-generic/extra/facetimehd.ko
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/facetimehd
+/usr/share/doc/facetimehd/LICENSE
+/usr/share/doc/facetimehd/README.md
+```
+
+They are all in the current kernel version.  So when you update your kernel,
+you will find the camera is not longer working, and have to uninstall the
+existing package
+
+```
+$ sudo apt-get remove facetimehd
+```
+
+and then install it again
+
+```
+$ sudo checkinstall # from the project directory
+```
+
+this is good in a way because if the _people at linux_ ever start to support
+this camera, or if this driver is ever merged into the linux kernel, I will
+know, because my camera will work after the kernel update.
 
 ### Left speaker doesn't work on the '09 Macbook Pro
 
