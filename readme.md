@@ -117,90 +117,11 @@ there, and not the Ubuntu MATE installation disk.)
 The German Mac Keyboard on the 2009 17" Macbook Pro seems to have two keys
 mixed up.
 
-This doesn't happen on my extended UK Mac ISO external keyboard. It doesn't
-happen on a PC German keyboard.  And it doesn't happen on my 2013 11" Macbook
-Air.  I don't know if this is something that happens on older Macbooks, older
-ISO Keyboards, German Mac Keyboards... but if you are reading this, maybe you
-are only here because you have the same problem, and found this in a web
-search.
-
 <image src="images/mixed-up.jpeg" alt="German Mac Keyboard with keys 94 and 49 circled" height="200" />
 
-If you have the same problem as me, the two circled keys, the one in the top
-left corner, and the one next to the shift key, are reversed.  Keycodes 94 and
-49 are mixed up! You choose the correct Mac keyboard configuration, but then
-when you press one of those guys, you get the symbols on the other!
-
-If you have this problem, you can read all my notes on it
-[here](./tl-dr.md#key-mix-up) if you really want to, or just try out this fix:
-
-To fix this, I creating a new MAC keyboard variant for keyboards with this issue
-by subclassing the normal mac keyboard layout:
-
-<sub>
-  This example is for German, but I'll explain a bit more about other keyboards
-</sub>
-
-```
-# cat >> /usr/share/X11/xkb/symbols/de
-partial alphanumeric_keys
-xkb_symbols "mac_fixed" {
-
-    include "de(mac)"
-
-    name[Group1]= "German (Macintosh, fixed)";
-
-    key <TLDE>  { [ less, greater, bar, dead_belowmacron ] };
-    key <LSGT>  { [ dead_circumflex, degree, U2032, U2033 ] };
-};
-```
-
-and then add this to `/usr/share/X11/xkb/rules/evdev.xml`
-
-```
-<variant>
-  <configItem>
-    <name>mac_fixed</name>
-    <description>German (Macintosh, Fixed)</description>
-  </configItem>
-</variant>
-```
-
-
-right underneath the variant you subclassed.
-
-I put an `F` in one of the names and `f` in the other so that I can figure
-out which of the two labels actually matters. So far the one in `evdev.xml`
-seems to be the one that matters.
-
-If your keyboard is not German, and say you have this problem with a UK keyboard
-then just look through `/usr/share/X11/xkb/symbols/gb`.  Start with the
-definition of the `mac` variant, and follow the includes up the chain until
-you find the defintions that it is using for `LSGT` and `TLDE`. Then copy them
-into your new variant, and swap the keys!
-
-This keyboard setting should be in your setting menus next time you restart.
-
-You can also set it immediately like this:
-```
-$ setxkbmap -layout de -variant mac_fixed
-```
-
-except it will bypass the settings menu, and your keyboard layouts options
-will still be set to whatever they were set to before. And if you change and
-save the settings menu, you will still not have this option.  There is probably
-a way to clear the cache without logging out but I don't know it.
-
-You can still use `setxkbmap` to test out your keyboard, and then get
-your full menu back the next restart.
-
-Once you add the above and restart, you should see this in your keyboard
-layout options:
-
-<image alt="Keyboard settings with keys reversed" src="images/fixed.png" height="300" />
-
-... a layout that looks backwards in the picture, but actually works correctly
-because your keyboard is also backwards.
+Well the good news is I think it is fixed in Kernel 6.4, and I think that
+I will be sent Kernel 6.5 in October 2023. But I wrote down my temporary
+workaround [here](./49-94.md)
 
 ### Left speaker doesn't work on the '09 Macbook Pro
 

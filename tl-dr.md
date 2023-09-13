@@ -126,6 +126,9 @@ layout, it'll have the modifier keys in the order that you like them.
 
 ### Key Mix-up
 
+NOTE: it looks like the driver people have fixed this, and the fix
+should be out in October 2023.  details [here](./49-94.md)
+
 (This section is the details that didn't fit
 [here](./readme.md#keys-49-and-94-are-mixed-up))
 
