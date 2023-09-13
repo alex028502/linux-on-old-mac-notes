@@ -262,6 +262,26 @@ or
 nohup plank &>/dev/null &
 ```
 
+I have since added a keyboard shortcut to handle this by opening "Keyboard
+Shortcuts" in the "start menu", and adding a custom one called `plank`. I have
+set Shift+Ctrl+Alt+P to a script called `~/bin/plank.sh` (except don't try to
+put a `~` in the shortcuts settings - put you full home directory path)
+
+The script looks like this
+
+```
+$ cat ~/bin/plank.sh 
+#! /usr/bin/env bash
+
+killall plank
+plank &
+```
+
+then when I wake up my computer, if the dock is floating in the middle of the
+screen, I just Shift+Ctrl+Alt+P and get to back to work.
+
+![plank keyboard shortcut set to key combination](./images/plank.png)
+
 ## More Mac like configuration
 
 My partner had a few deal breaker demands for Mac like UI. They might not be
