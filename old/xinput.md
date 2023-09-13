@@ -44,7 +44,7 @@ way to set it.
 If after running that command, if you prefer that way this works, you can add
 a startup script here:
 
-![Start Up Applications in Control Centre](./images/startup.png)
+![Start Up Applications in Control Centre](../images/startup.png)
 
 Make the name and description whatever you want, and make the exact same
 command you tried out.  To see if it worked, just log out and log back in.

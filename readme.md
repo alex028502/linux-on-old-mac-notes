@@ -127,7 +127,7 @@ mixed up.
 
 Well the good news is I think it is fixed in Kernel 6.4, and I think that
 I will be sent Kernel 6.5 in October 2023. But I wrote down my temporary
-workaround [here](./49-94.md)
+workaround [here](./old/49-94.md)
 
 ### Camera Issue
 
@@ -460,7 +460,7 @@ You can turn it on in mouse settings like this:
 Somehow that setting didn't work as expected the first time I tried it, or I
 thought by the menu structure that it would turn on multi-finger mode without
 turning off the clicking areas, so I found a much harder way to accomplish the
-same thing which is now documented [here](./xinput.md)
+same thing which is now documented [here](./old/xinput.md)
 
 ### Exposé
 
