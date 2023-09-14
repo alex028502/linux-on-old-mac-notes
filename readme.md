@@ -730,9 +730,7 @@ one of these desktop files.
 
 ## Penguin Sticker
 
-<div style="max-height: 200px; transform: rotate(-90deg);">
-  <img src="images/penguin.jpeg" alt="Penguin holding apple decal">
-</div>
+<img src="images/penguin.jpeg" width="200" alt="Penguin holding apple decal">
 
 I got this awesome Penguin sticker off Etsy from a company called Denver Decals
 It looks even more awesome when the light is lit, but my camera probably
