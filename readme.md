@@ -19,6 +19,7 @@
   - [Sort out touchpad clicking](#no-clicking-areas)
   - [Exposé](#exposé)
   - [Swipe to show desktop](#show-desktop-trackpad-gesture)
+  - [Penguin Sticker](#penguin-sticker)
 - [Conclusion](#conclusion)
 
 
@@ -727,7 +728,27 @@ and that is already placed in the hidden section of Startup Application. In
 fact the startup application I added for `xmodmap` before actually just creates
 one of these desktop files.
 
+## Penguin Sticker
+
+<div style="max-height: 200px; transform: rotate(-90deg);">
+  <img src="images/penguin.jpeg" alt="Penguin holding apple decal">
+</div>
+
+I got this awesome Penguin sticker off Etsy from a company called Denver Decals
+It looks even more awesome when the light is lit, but my camera probably
+wouldn't do it justice.
+
 ## Conclusion
 
 Well I am using the Macbook Air to write this document in emacs and it, use
 firefox for research, and previewing, and it seems to work pretty well.
+
+UPDATE:
+I have been using the 2013 11" Macbook Air for some time now as my main home
+computer at a desk, and as my tiny travel computer that fits in any bag and am
+totally happy with it.
+
+My partner has been using the 2009 Macbook Pro a browsing on the couch computer
+as well, and while not as excited about the whole thing as me, has no problem
+with it (that I can't solve).  It's great that this nice piece of hardware
+with a fantastic giant screen has been given another life.
