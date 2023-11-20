@@ -150,7 +150,26 @@ I don't quite understand why this exists, because the linux-hardware.org page
 says that the kernel supported this camera until v5.11, and it seems like
 `bcww_pcie` also existed at the same time, but I haven't looked to closely.
 
+---
+UPDATE:
+OK I see - there seem to have been two different pieces of hardware out there
+with id 14e4:1570
 
+One was this camera, and one was some kind of POC that was removed in this
+commit.
+
+https://github.com/torvalds/linux/commit/7766cafea0eca6a7cc0ffc947bc95be19295575f
+
+> The BDC PCI driver was only used for design verification with an PCI/FPGA board
+
+so if you have linux 6 or above, there's no need to worry about this
+warning from [here](https://github.com/patjak/facetimehd/wiki#known-issues)
+
+> No /dev/video0 device appears after loading the module. This can be because
+> the `bdc_pci` module is already loaded. Make sure you unload or blacklist
+> `bdc_pci` before loading the facetimehd module: `modprobe -r bdc_pci`.
+
+---
 
 I wish I could say I just followed the
 [instructions](https://github.com/patjak/facetimehd/wiki/Installation#get-started-on-debian),
